@@ -1,0 +1,50 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Components
+
+<link href="_content/iNNOTECH_Training.BootstrapComponents.AssignmentTable/css/AssignmentTableComponent.css" rel="stylesheet" />
+
+<table class="table @TableClass">
+    <thead>
+        <tr>
+            <th>Topic</th>
+            <th>Date Assigned</th>
+            <th>Date Submitted</th>
+            <th>Grade & Status</th>
+            <th>Requests & Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var assignment in Assignments)
+        {
+            <tr class="rounded-table-row">
+                <td>@assignment.Topic</td>
+                <td>@assignment.DateAssigned.ToString("HH:mm dd/MM/yyyy", CultureInfo.InvariantCulture)</td>
+                <td>@(assignment.DateSubmitted.HasValue ? assignment.DateSubmitted.Value.ToString("HH:mm dd/MM/yyyy", CultureInfo.InvariantCulture) : "Not Submitted")</td>
+                <td>
+                    @if (assignment.IsSubmitted)
+                    {
+                        @assignment.Grade
+                    }
+                    else
+                    {
+                        <input type="file" accept=".zip" />
+                    }
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Options
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Delay</a></li>
+                            <li><a class="dropdown-item" href="#">Resubmit</a></li>
+                            <li><a class="dropdown-item" href="#">Show Files</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

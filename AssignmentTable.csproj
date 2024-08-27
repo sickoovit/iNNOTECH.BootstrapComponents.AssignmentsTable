@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<PackageId>iNNOTECH_Training.BootstrapComponents.AssignmentTable</PackageId>
+		<Version>1.0.1</Version>
+		<Authors>SiCKOOViT</Authors>
+		<Description>Like Bruv</Description>
+		<Company>iNNOTECH</Company>
+		<PackageTags>rcl;razor;components</PackageTags>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="AssignmentTableComponent.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Update="wwwroot\css\AssignmentTableComponent.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
